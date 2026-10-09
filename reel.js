@@ -15,14 +15,24 @@ STORY.forEach((chapter, ci) => {
   }
 });
 
-const palm = document.querySelector(".cover .palm");
+const head = document.querySelector(".reel-head");
+const PHOTO_RATIO = 1013 / 698; // the video takes a photo-sized slot
+let moment = null;
 
 const slideEls = slides.map((s, i) => {
   const el = document.createElement("div");
   el.className = "slide" + (s.birth ? " slide-birth" : "");
   if (s.birth) {
-    el.append(palm.cloneNode(true));
-    el.insertAdjacentHTML("beforeend", `<div class="birth-time">${s.time}</div><div class="birth-title">${s.title}</div>`);
+    moment = createMoment(el, {
+      onPlay: () => {
+        el.dataset.ratio = PHOTO_RATIO;
+        relayout();
+      },
+      onStop: () => {
+        delete el.dataset.ratio;
+        relayout();
+      },
+    });
   } else {
     const [w, h] = SIZES[s.file];
     el.dataset.ratio = w / h;
@@ -60,7 +70,7 @@ function layout() {
   const stageW = track.clientWidth;
   const h = Math.min(track.clientHeight, 900);
   slideEls.forEach((el) => {
-    if (el.classList.contains("slide-birth")) {
+    if (el.classList.contains("slide-birth") && !el.dataset.ratio) {
       const size = Math.min(h * 0.8, stageW * 0.85);
       el.style.width = el.style.height = `${size}px`;
       return;
@@ -92,6 +102,7 @@ let active = -1;
 function setActive(i) {
   if (i === active) return;
   const prev = slides[active];
+  if (prev && prev.birth && moment) moment.stop();
   active = i;
   const s = slides[i];
   slideEls.forEach((el, n) => el.classList.toggle("active", n === i));
@@ -106,11 +117,16 @@ function setActive(i) {
     titleEl.textContent = s.title;
   }
   timeEl.textContent = s.time;
-  // the birth circle already says it all
-  document.querySelector(".reel-head").classList.toggle("quiet", Boolean(s.birth));
+  // on the birth slide the head shows only the date kicker
+  head.classList.toggle("is-birth", Boolean(s.birth));
 }
 
+// A relayout (resize, video open/close) shifts the scroll for a moment;
+// ignore that so it doesn't look like the visitor moved to another slide.
+let settling = false;
+
 function findActive() {
+  if (settling) return;
   let best = 0;
   let bestDist = Infinity;
   slideEls.forEach((el, i) => {
@@ -144,8 +160,13 @@ document.addEventListener("keydown", (e) => {
 
 function relayout() {
   if (!desktop.matches) return;
+  settling = true;
   layout();
   track.scrollBy({ left: centerOffset(slideEls[active]) });
+  setTimeout(() => {
+    track.scrollBy({ left: centerOffset(slideEls[active]) });
+    settling = false;
+  }, 300);
 }
 window.addEventListener("resize", relayout);
 desktop.addEventListener("change", relayout);
