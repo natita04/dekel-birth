@@ -59,10 +59,11 @@ a { color: var(--palm); }
 .palm.small { width: 44px; margin-bottom: 8px; }
 
 .eyebrow {
-  letter-spacing: 0.25em;
-  color: var(--sage);
-  font-size: 0.95rem;
-  margin: 0 0 8px;
+  font-family: var(--serif);
+  letter-spacing: 0.08em;
+  color: var(--palm);
+  font-size: clamp(1.3rem, 4.5vw, 1.6rem);
+  margin: 0 0 4px;
 }
 
 .cover h1 {
@@ -72,49 +73,57 @@ a { color: var(--palm); }
 }
 
 .born {
-  font-family: var(--serif);
-  font-size: clamp(1.15rem, 4vw, 1.45rem);
-  margin: 14px 0 26px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 28px;
+  margin: 26px 0 22px;
 }
+.born .label {
+  display: block;
+  font-size: 0.8rem;
+  letter-spacing: 0.18em;
+  color: var(--sage);
+  margin-bottom: 2px;
+}
+.born .value {
+  display: block;
+  font-family: var(--serif);
+  font-weight: 500;
+  font-size: clamp(1.35rem, 5vw, 1.75rem);
+  line-height: 1.2;
+  color: var(--ink);
+}
+.born .divider { width: 1px; align-self: stretch; background: var(--blush); }
+.ltr { direction: ltr; }
 
 .facts {
   list-style: none;
   display: flex;
-  gap: 14px;
+  gap: 28px;
   padding: 0;
-  margin: 0 0 22px;
+  margin: 0 0 26px;
   flex-wrap: wrap;
   justify-content: center;
 }
 .facts li {
-  background: rgba(255, 255, 255, 0.6);
-  border: 1px solid var(--sage-soft);
-  border-radius: 999px;
-  padding: 6px 18px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 1.1rem;
   font-weight: 400;
 }
-.facts span {
-  color: var(--muted);
-  font-size: 0.85rem;
-  margin-inline-end: 8px;
+.facts svg {
+  width: 22px;
+  height: 22px;
+  fill: none;
+  stroke: var(--palm);
+  stroke-width: 1.5;
+  stroke-linecap: round;
+  stroke-linejoin: round;
 }
 
-.family { color: var(--muted); margin: 0 0 30px; font-size: 1.05rem; }
-
-blockquote {
-  font-family: var(--serif);
-  font-size: 1.25rem;
-  color: var(--palm);
-  margin: 0;
-}
-blockquote cite {
-  display: block;
-  font-family: var(--sans);
-  font-style: normal;
-  font-size: 0.8rem;
-  color: var(--muted);
-  margin-top: 2px;
-}
+.family { color: var(--muted); margin: 0 0 30px; font-size: 1.1rem; }
 
 .scroll-hint {
   position: absolute;
@@ -219,8 +228,8 @@ blockquote cite {
   color: var(--palm);
   direction: ltr;
 }
+.birth .palm { width: 64px; margin: 0 auto 14px; }
 .birth h2 { font-size: clamp(1.6rem, 6vw, 2.2rem); margin-top: 10px; }
-.birth p { color: var(--muted); margin: 6px 0 0; }
 
 /* Footer */
 footer {

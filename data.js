@@ -6,7 +6,6 @@ const BIRTH_TIME = "16:08";
 const STORY = [
   {
     title: "מחכים לך",
-    text: "החדר עוד שקט, הידיים שלובות, והלב כבר יודע שהיום זה היום.",
     photos: [
       { file: "_DSC8480A.jpg", time: "14:45" },
       { file: "_DSC8495A.jpg", time: "14:49" },
@@ -20,8 +19,7 @@ const STORY = [
     ],
   },
   {
-    title: "הגלים",
-    text: "גל אחרי גל, נשימה אחרי נשימה. יד ביד, עד הסוף.",
+    title: "זה מתקרב",
     photos: [
       { file: "_DSC8634A.jpg", time: "15:30" },
       { file: "_DSC8639A.jpg", time: "15:31" },
@@ -37,10 +35,9 @@ const STORY = [
       { file: "_DSC8756A.jpg", time: "16:05" },
     ],
   },
-  { birth: true, title: "דקל נולד", text: "ובשנייה אחת, העולם התחיל מחדש." },
+  { birth: true, title: "דקל נולד" },
   {
-    title: "שלום, דקל",
-    text: "בכי ראשון, עור על עור, ודמעות של אבא.",
+    title: "שלום עולם",
     photos: [
       { file: "_DSC8805A.jpg", time: "16:09" },
       { file: "_DSC8808A.jpg", time: "16:10" },
@@ -60,8 +57,7 @@ const STORY = [
     ],
   },
   {
-    title: "הראשונים",
-    text: "שקילה ראשונה, כובע ראשון, חיבוק ראשון. 3.590 ק״ג של מתיקות.",
+    title: "היכרות ראשונה",
     photos: [
       { file: "_DSC8895A.jpg", time: "16:35" },
       { file: "_DSC8904A.jpg", time: "16:38" },
@@ -78,8 +74,7 @@ const STORY = [
     ],
   },
   {
-    title: "משפחה",
-    text: "הידיים של אבא, הלב של אמא, ומקום חדש וקטן שכבר מרגיש כמו בית.",
+    title: "מתחילים את החיים",
     photos: [
       { file: "_DSC9021A.jpg", time: "20:15" },
       { file: "_DSC9046A.jpg", time: "20:22" },
