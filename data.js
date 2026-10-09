@@ -1,5 +1,6 @@
 // The story, in order. The files carry no capture time, so times are estimated
-// from the frame numbers: first frame ~14:45, birth at 16:08 between _DSC8756 and _DSC8805.
+// from the frame numbers: first frame ~14:45, birth at 16:08 between _DSC8756 and _DSC8805,
+// and _DSC9021 onwards ~20:15 (after the surgery).
 const BIRTH_TIME = "16:08";
 
 const STORY = [
@@ -80,18 +81,18 @@ const STORY = [
     title: "משפחה",
     text: "הידיים של אבא, הלב של אמא, ומקום חדש וקטן שכבר מרגיש כמו בית.",
     photos: [
-      { file: "_DSC9021A.jpg", time: "17:12" },
-      { file: "_DSC9046A.jpg", time: "17:19" },
-      { file: "_DSC9058A.jpg", time: "17:22" },
-      { file: "_DSC9064A.jpg", time: "17:24" },
-      { file: "_DSC9068A.jpg", time: "17:25" },
-      { file: "_DSC9083A.jpg", time: "17:30" },
-      { file: "_DSC9087A.jpg", time: "17:31" },
-      { file: "_DSC9091A.jpg", time: "17:32" },
-      { file: "_DSC9101A.jpg", time: "17:35" },
-      { file: "_DSC9108A.jpg", time: "17:37" },
-      { file: "_DSC9115A.jpg", time: "17:39" },
-      { file: "_DSC9119A.jpg", time: "17:40" },
+      { file: "_DSC9021A.jpg", time: "20:15" },
+      { file: "_DSC9046A.jpg", time: "20:22" },
+      { file: "_DSC9058A.jpg", time: "20:26" },
+      { file: "_DSC9064A.jpg", time: "20:27" },
+      { file: "_DSC9068A.jpg", time: "20:29" },
+      { file: "_DSC9083A.jpg", time: "20:33" },
+      { file: "_DSC9087A.jpg", time: "20:34" },
+      { file: "_DSC9091A.jpg", time: "20:35" },
+      { file: "_DSC9101A.jpg", time: "20:38" },
+      { file: "_DSC9108A.jpg", time: "20:40" },
+      { file: "_DSC9115A.jpg", time: "20:42" },
+      { file: "_DSC9119A.jpg", time: "20:43" },
     ],
   },
 ];
