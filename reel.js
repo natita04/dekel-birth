@@ -16,23 +16,12 @@ STORY.forEach((chapter, ci) => {
 });
 
 const head = document.querySelector(".reel-head");
-const PHOTO_RATIO = 1013 / 698; // the video takes a photo-sized slot
-let moment = null;
 
 const slideEls = slides.map((s, i) => {
   const el = document.createElement("div");
   el.className = "slide" + (s.birth ? " slide-birth" : "");
   if (s.birth) {
-    moment = createMoment(el, {
-      onPlay: () => {
-        el.dataset.ratio = PHOTO_RATIO;
-        relayout();
-      },
-      onStop: () => {
-        delete el.dataset.ratio;
-        relayout();
-      },
-    });
+    createMoment(el);
   } else {
     const [w, h] = SIZES[s.file];
     el.dataset.ratio = w / h;
@@ -70,7 +59,7 @@ function layout() {
   const stageW = track.clientWidth;
   const h = Math.min(track.clientHeight, 900);
   slideEls.forEach((el) => {
-    if (el.classList.contains("slide-birth") && !el.dataset.ratio) {
+    if (el.classList.contains("slide-birth")) {
       const size = Math.min(h * 0.8, stageW * 0.85);
       el.style.width = el.style.height = `${size}px`;
       return;
@@ -102,7 +91,6 @@ let active = -1;
 function setActive(i) {
   if (i === active) return;
   const prev = slides[active];
-  if (prev && prev.birth && moment) moment.stop();
   active = i;
   const s = slides[i];
   slideEls.forEach((el, n) => el.classList.toggle("active", n === i));
@@ -121,7 +109,7 @@ function setActive(i) {
   head.classList.toggle("is-birth", Boolean(s.birth));
 }
 
-// A relayout (resize, video open/close) shifts the scroll for a moment;
+// A relayout (resize) shifts the scroll for a moment;
 // ignore that so it doesn't look like the visitor moved to another slide.
 let settling = false;
 
@@ -153,7 +141,7 @@ track.addEventListener("scroll", () => {
 document.querySelector(".reel-next").addEventListener("click", () => goTo(active + 1));
 document.querySelector(".reel-prev").addEventListener("click", () => goTo(active - 1));
 document.addEventListener("keydown", (e) => {
-  if (!desktop.matches) return;
+  if (!desktop.matches || !videoBox.hidden) return;
   if (e.key === "ArrowLeft") goTo(active + 1);
   if (e.key === "ArrowRight") goTo(active - 1);
 });
