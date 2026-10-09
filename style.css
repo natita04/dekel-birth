@@ -284,3 +284,13 @@ footer .credit {
   .lb-prev, .lb-next { display: none; }
   .moment { margin-bottom: 32px; }
 }
+
+.time-note {
+  text-align: center;
+  font-size: 0.85rem;
+  color: var(--muted);
+  background: var(--cream);
+  width: fit-content;
+  margin: 0 auto;
+  padding: 4px 12px;
+}
