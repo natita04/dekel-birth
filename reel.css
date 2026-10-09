@@ -1,10 +1,11 @@
-/* Horizontal version */
+/* Horizontal reel */
 .reel {
+  position: relative;
   height: 100svh;
   min-height: 560px;
   display: flex;
   flex-direction: column;
-  padding: 28px 0 22px;
+  padding: 28px 0 44px;
 }
 
 .reel-head {
@@ -150,19 +151,18 @@
   background: var(--blush);
   box-shadow: 0 0 0 3px var(--cream), 0 0 0 4px var(--blush);
 }
-.axis-label {
-  display: block;
-  text-align: center;
+
+.reel-credit {
+  position: absolute;
+  bottom: 14px;
+  inset-inline-end: 22px;
+  margin: 0;
   font-size: 0.8rem;
   color: var(--muted);
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
 }
+.reel-credit a { color: inherit; text-decoration: none; }
+.reel-credit a:hover { color: var(--palm); }
 
-@media (max-width: 700px) {
-  .reel-btn { display: none; }
-  .reel-axis { gap: 6px; }
-  .axis-label { display: none; }
-  .axis-dot { width: 4px; height: 4px; }
-}
+/* Desktop: horizontal reel. Mobile: vertical timeline. */
+@media (max-width: 899px) { .reel { display: none; } }
+@media (min-width: 900px) { .timeline { display: none; } }

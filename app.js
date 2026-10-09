@@ -1,4 +1,4 @@
-const timeline = document.getElementById("story");
+const timeline = document.querySelector(".timeline");
 const allPhotos = [];
 
 STORY.forEach((chapter, ci) => {

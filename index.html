@@ -13,6 +13,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Frank+Ruhl+Libre:wght@300;500&family=Assistant:wght@300;400;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="reel.css">
 </head>
 <body>
   <header class="cover">
@@ -46,7 +47,22 @@
     <a class="scroll-hint" href="#story" aria-label="לסיפור">↓</a>
   </header>
 
-  <main id="story" class="timeline"></main>
+  <div id="story">
+    <main class="timeline"></main>
+    <section class="reel" aria-label="הסיפור בתמונות">
+      <div class="reel-head">
+        <h2 class="reel-title"></h2>
+        <time class="reel-time"></time>
+      </div>
+      <div class="reel-stage">
+        <button class="reel-btn reel-prev" aria-label="הקודמת">›</button>
+        <div class="reel-track"></div>
+        <button class="reel-btn reel-next" aria-label="הבאה">‹</button>
+      </div>
+      <p class="reel-credit">צילום: <a href="https://www.instagram.com/ortal.birth.photography/" target="_blank" rel="noopener">Ortal Ron</a></p>
+      <nav class="reel-axis" aria-label="ציר זמן"></nav>
+    </section>
+  </div>
 
   <footer>
     <svg class="palm small" viewBox="0 0 120 140" aria-hidden="true">
@@ -65,5 +81,7 @@
 
   <script src="data.js"></script>
   <script src="app.js"></script>
+  <script src="sizes.js"></script>
+  <script src="reel.js"></script>
 </body>
 </html>

@@ -1,4 +1,6 @@
-// Horizontal version: every photo on one axis, chapter title + time on top.
+// Desktop view: every photo on one horizontal axis, chapter title + time on top.
+// Mobile keeps the vertical timeline (app.js).
+const desktop = matchMedia("(min-width: 900px)");
 const track = document.querySelector(".reel-track");
 const axis = document.querySelector(".reel-axis");
 const titleEl = document.querySelector(".reel-title");
@@ -50,7 +52,6 @@ STORY.forEach((chapter, ci) => {
     dots[i] = dot;
   });
   seg.append(row);
-  if (!chapter.birth) seg.insertAdjacentHTML("beforeend", `<span class="axis-label">${chapter.title}</span>`);
   axis.append(seg);
 });
 
@@ -136,16 +137,18 @@ track.addEventListener("scroll", () => {
 document.querySelector(".reel-next").addEventListener("click", () => goTo(active + 1));
 document.querySelector(".reel-prev").addEventListener("click", () => goTo(active - 1));
 document.addEventListener("keydown", (e) => {
+  if (!desktop.matches) return;
   if (e.key === "ArrowLeft") goTo(active + 1);
   if (e.key === "ArrowRight") goTo(active - 1);
 });
 
-window.addEventListener("resize", () => {
-  const keep = active;
+function relayout() {
+  if (!desktop.matches) return;
   layout();
-  track.scrollBy({ left: centerOffset(slideEls[keep]) });
-});
+  track.scrollBy({ left: centerOffset(slideEls[active]) });
+}
+window.addEventListener("resize", relayout);
+desktop.addEventListener("change", relayout);
 
-layout();
-track.scrollBy({ left: centerOffset(slideEls[0]) });
 setActive(0);
+relayout();
