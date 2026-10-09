@@ -281,10 +281,11 @@ a { color: var(--palm); }
   font-size: 1.6rem;
   line-height: 1;
   cursor: pointer;
+  direction: ltr;
 }
-.lb-close { top: 16px; inset-inline-end: 16px; }
-.lb-prev { inset-inline-start: 16px; top: 50%; transform: translateY(-50%); }
-.lb-next { inset-inline-end: 16px; top: 50%; transform: translateY(-50%); }
+.lb-close { top: 16px; left: 16px; }
+.lb-prev { right: 16px; top: 50%; transform: translateY(-50%); }
+.lb-next { left: 16px; top: 50%; transform: translateY(-50%); }
 
 @media (max-width: 600px) {
   .lb-prev, .lb-next { display: none; }

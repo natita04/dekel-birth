@@ -100,9 +100,10 @@
   font-size: 1.6rem;
   line-height: 1;
   cursor: pointer;
+  direction: ltr; /* keep ‹ › from being mirrored by the RTL page */
 }
-.reel-prev { inset-inline-start: 18px; }
-.reel-next { inset-inline-end: 18px; }
+.reel-prev { right: 18px; }
+.reel-next { left: 18px; }
 
 /* Axis */
 .reel-axis {
