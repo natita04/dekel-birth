@@ -6,10 +6,8 @@ STORY.forEach((chapter, ci) => {
 
   if (chapter.birth) {
     section.className = "birth reveal";
-    section.innerHTML = `
-      <div class="birth-time">${BIRTH_TIME}</div>
-      <h2>${chapter.title}</h2>`;
-    section.prepend(document.querySelector(".cover .palm").cloneNode(true));
+    section.innerHTML = `<p class="kicker">10 בספטמבר 2026</p><div class="birth__slot"></div>`;
+    createMoment(section.querySelector(".birth__slot"));
     timeline.append(section);
     return;
   }
@@ -26,7 +24,7 @@ STORY.forEach((chapter, ci) => {
     const index = allPhotos.length;
     allPhotos.push(p);
     const fig = document.createElement("figure");
-    fig.className = "moment reveal";
+    fig.className = "shot reveal";
     const stamp = p.time ? `<figcaption><time>${p.time}</time></figcaption>` : "";
     fig.innerHTML = `
       <button class="photo" aria-label="הגדלה">

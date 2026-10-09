@@ -12,20 +12,31 @@
   text-align: center;
   padding: 0 16px 18px;
 }
-.reel-head { transition: opacity 0.4s ease; }
-.reel-head.quiet { opacity: 0; }
 .reel-title {
-  font-size: clamp(1.9rem, 6.5vw, 2.8rem);
-  color: var(--palm);
+  font-size: clamp(36px, 4vw, 54px);
+  color: var(--color-heading-sage);
   line-height: 1.2;
 }
+/* on the birth slide only the date kicker shows (it sits in the title's place) */
+.reel-kicker { display: none; }
+.reel-head.is-birth .reel-kicker {
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  height: calc(clamp(36px, 4vw, 54px) * 1.2);
+  margin: 0;
+  font-size: 15px;
+  letter-spacing: 0.25em;
+  color: var(--color-muted);
+}
+.reel-head.is-birth .reel-title { display: none; }
+.reel-head.is-birth .reel-time { visibility: hidden; }
 .reel-title.swap { animation: swap 0.6s ease; }
 @keyframes swap { from { opacity: 0; transform: translateY(8px); } }
 .reel-time {
   display: block;
-  font-family: var(--serif);
-  font-size: clamp(1.2rem, 4vw, 1.5rem);
-  color: var(--ink);
+  font-size: 24px;
+  color: var(--color-ink-soft);
   direction: ltr;
 }
 
@@ -51,10 +62,10 @@
 .slide {
   flex: none;
   scroll-snap-align: center;
-  border-radius: 14px;
+  border-radius: var(--radius-photo);
   overflow: hidden;
-  background: var(--sand);
-  box-shadow: 0 14px 34px -18px rgba(74, 66, 57, 0.45);
+  background: var(--color-blush-ring);
+  box-shadow: var(--shadow-photo);
   opacity: 0.45;
   transform: scale(0.94);
   transition: opacity 0.5s ease, transform 0.5s ease;
@@ -63,27 +74,19 @@
 .slide.active { opacity: 1; transform: none; cursor: default; }
 .slide img { display: block; width: 100%; height: 100%; object-fit: cover; }
 
+/* the birth slide is just a slot; the circle (style.css .moment) sits inside */
 .slide-birth {
-  border-radius: 50%;
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
-  background: radial-gradient(circle, #fff 0%, var(--sand) 70%);
-  box-shadow: 0 0 0 10px var(--cream), 0 0 0 11px var(--blush);
+  overflow: visible;
+  background: none;
+  box-shadow: none;
 }
-.slide-birth .palm { width: 22%; margin-bottom: 6%; }
-.slide-birth .birth-time {
-  font-family: var(--serif);
-  font-size: clamp(3rem, 12vw, 4.8rem);
-  line-height: 1;
-  color: var(--palm);
-  direction: ltr;
-}
-.slide-birth .birth-title {
-  font-family: var(--serif);
-  font-size: clamp(1.4rem, 5vw, 2rem);
-  margin-top: 8px;
+.slide-birth .moment__time { font-size: clamp(44px, 7vw, 104px); }
+.slide-birth .moment__title { font-size: clamp(16px, 2vw, 26px); }
+@media (max-height: 760px) {
+  .slide-birth .palm { width: 47px; height: 60px; }
 }
 
 .reel-btn {
@@ -94,14 +97,15 @@
   width: 46px;
   height: 46px;
   border-radius: 50%;
-  border: 1px solid var(--sage-soft);
-  background: rgba(255, 255, 255, 0.8);
-  color: var(--palm);
+  border: 1px solid var(--color-nav-border);
+  background: rgba(255, 255, 255, 0.92);
+  color: var(--color-ink-soft);
   font-size: 1.6rem;
   line-height: 1;
   cursor: pointer;
   direction: ltr; /* keep ‹ › from being mirrored by the RTL page */
 }
+.reel-btn:hover { background: var(--color-surface); }
 .reel-prev { right: 18px; }
 .reel-next { left: 18px; }
 
@@ -128,7 +132,7 @@
   inset-inline: 0;
   top: 50%;
   height: 1px;
-  background: var(--sage-soft);
+  background: var(--color-dot-line);
 }
 .axis-dot {
   width: 6px;
@@ -137,20 +141,20 @@
   position: relative;
   border: 0;
   border-radius: 50%;
-  background: var(--sage-soft);
+  background: var(--color-dot-future);
   cursor: pointer;
   transition: transform 0.3s ease, background 0.3s ease;
 }
-.axis-dot.seen { background: var(--sage); }
-.axis-dot.active { background: var(--palm); transform: scale(2); }
+.axis-dot.seen { background: var(--color-dot-past); }
+.axis-dot.active { background: var(--color-accent); transform: scale(2); }
 .axis-birth { flex: 0 0 16px; }
 .axis-birth .axis-dots { justify-content: center; }
 .axis-birth .axis-dots::before { display: none; }
 .axis-birth .axis-dot {
   width: 10px;
   height: 10px;
-  background: var(--blush);
-  box-shadow: 0 0 0 3px var(--cream), 0 0 0 4px var(--blush);
+  background: var(--color-blush-fill);
+  box-shadow: 0 0 0 3px var(--color-bg), 0 0 0 4px var(--color-blush);
 }
 
 
