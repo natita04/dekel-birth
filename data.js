@@ -4,9 +4,6 @@
 // and _DSC9021 onwards ~20:15 (after the surgery).
 const BIRTH_TIME = "16:08";
 
-// Birth video for the 16:08 circle (YouTube id). Set to null to hide the play button.
-const BIRTH_VIDEO = { youtube: "kilpBtmGdys" };
-
 const STORY = [
   {
     title: "מחכים לך",

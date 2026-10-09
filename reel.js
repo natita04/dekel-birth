@@ -141,7 +141,7 @@ track.addEventListener("scroll", () => {
 document.querySelector(".reel-next").addEventListener("click", () => goTo(active + 1));
 document.querySelector(".reel-prev").addEventListener("click", () => goTo(active - 1));
 document.addEventListener("keydown", (e) => {
-  if (!desktop.matches || !videoBox.hidden) return;
+  if (!desktop.matches) return;
   if (e.key === "ArrowLeft") goTo(active + 1);
   if (e.key === "ArrowRight") goTo(active - 1);
 });

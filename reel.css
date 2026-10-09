@@ -153,8 +153,8 @@
 .axis-birth .axis-dot {
   width: 10px;
   height: 10px;
-  background: var(--color-mustard);
-  box-shadow: 0 0 0 3px var(--color-bg), 0 0 0 4px var(--color-mustard-ring);
+  background: var(--color-accent);
+  box-shadow: 0 0 0 3px var(--color-bg), 0 0 0 4px var(--color-accent);
 }
 
 
