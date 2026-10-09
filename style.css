@@ -122,7 +122,21 @@ a { color: var(--palm); }
   stroke-linejoin: round;
 }
 
-.family { color: var(--muted); margin: 0 0 30px; font-size: 1.1rem; }
+.family { color: var(--muted); margin: 0 0 18px; font-size: 1.1rem; }
+
+.thanks {
+  color: var(--muted);
+  font-size: 0.95rem;
+  margin: 0 0 30px;
+  padding-top: 18px;
+  border-top: 1px solid var(--blush);
+}
+.thanks a {
+  color: var(--palm);
+  text-decoration: none;
+  border-bottom: 1px solid var(--sage-soft);
+}
+.thanks a:hover { border-bottom-color: var(--palm); }
 
 .scroll-hint {
   position: absolute;
