@@ -215,16 +215,6 @@ h1.name {
   padding: 40px var(--gutter) 56px;
   position: relative;
 }
-.timeline::before {
-  content: "";
-  position: absolute;
-  top: 0; bottom: 0;
-  inset-inline-start: 50%;
-  width: 1px;
-  background: var(--color-dot-line);
-  z-index: -1;
-}
-
 .chapter-head {
   text-align: center;
   background: var(--color-bg);
@@ -265,10 +255,8 @@ h1.name {
 .photo:hover img { transform: scale(1.015); }
 
 .shot figcaption {
-  margin: 12px auto 0;
-  background: var(--color-bg);
-  width: fit-content;
-  padding: 0 12px;
+  margin-top: 12px;
+  text-align: center;
 }
 .shot time {
   font-size: 24px;
